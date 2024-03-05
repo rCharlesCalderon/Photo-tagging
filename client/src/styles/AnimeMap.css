@@ -1,0 +1,49 @@
+.Anime-Map {
+    image-rendering: auto;
+    border: 1px green solid;
+    height: 100%;
+    width: 100%;
+}
+
+.target-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    border: 2px green solid;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    position: absolute;
+    pointer-events: none;
+    color: green;
+    font-size: 40px;
+  
+}
+
+.box{
+    display: flex;
+    position: absolute;
+    min-height: 240px;
+    width: 150px;
+    border-radius: 10px;
+    border: 1px black solid;
+      background: lightblue;
+       flex-direction: column;
+       gap: 5px;
+}
+
+.targetImg{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+}
+
+.imgContainer{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    border: 1px black solid;
+    height: 50px;
+}

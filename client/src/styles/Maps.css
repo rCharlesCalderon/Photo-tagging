@@ -1,0 +1,32 @@
+.Map-container{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+    height: 80%;
+    width: 100%;
+    border: 1px black solid;
+}
+
+.Maps{
+    display: flex;
+    border: 1px green solid;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    width: 100%;
+    gap: 10px;
+}
+
+
+.image-box{
+    display: flex;
+    flex-direction: column;
+    border: 1px black solid;
+    height: 380px;
+    width: 360px;
+}
+.image{
+    height: 70%;
+    width: 100%;
+    border: 1px black solid;
+}

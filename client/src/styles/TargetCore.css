@@ -1,0 +1,12 @@
+.targetCircle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px green solid;
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    
+    border-radius: 40px;
+    
+}
