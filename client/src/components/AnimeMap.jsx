@@ -33,10 +33,12 @@ function AnimeMap() {
 
   const handlePosition = (e) => {
     //-40-41 is for centering the TargetCore on the cursor
-    let xPositioning = e.clientX + window.scrollX - 41;
-    let yPositioning = e.clientY + window.scrollY - 41;
-    let listPositionX = xPositioning + 50;
-    let listPositionY = yPositioning + 50;
+    let xPositioning = e.clientX + window.scrollX;
+    console.log(xPositioning, "Correct X");
+    let yPositioning = e.clientY + window.scrollY;
+    console.log(yPositioning, "Correct Y");
+    let listPositionX = xPositioning;
+    let listPositionY = yPositioning;
     setXPosition(xPositioning);
     setYPosition(yPositioning);
     setXListPosition(listPositionX);

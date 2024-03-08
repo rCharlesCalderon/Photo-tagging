@@ -8,8 +8,9 @@ function TargetCore() {
     <div
       className="targetCircle"
       style={{
-        left: `${xPosition}px`,
-        top: `${yPosition}px`,
+        //-41 is for styling purposes
+        left: `${xPosition - 41}px`,
+        top: `${yPosition - 41}px`,
       }}
     >
       +
