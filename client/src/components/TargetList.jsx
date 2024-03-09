@@ -3,12 +3,19 @@ import "../index.css";
 import { targetContext } from "./AnimeMap"; // Import the context
 
 import "../styles/TargetList.css";
-import { func } from "prop-types";
 
 function TargetList() {
   // useContext shit
-  const { listXPosition, listYPosition, targetList, xPosition, yPosition } =
-    useContext(targetContext);
+  const {
+    listXPosition,
+    listYPosition,
+    targetList,
+    xPosition,
+    yPosition,
+    menu,
+    setMenu,
+    setTargetList,
+  } = useContext(targetContext);
   function handleTarget(target) {
     const targetData = {
       ...target,
@@ -29,7 +36,11 @@ function TargetList() {
   }
 
   function handleTargetValidation(data) {
-    console.log(data);
+    const currentObj = targetList.findIndex((obj) => obj.name === data.name);
+    const targetListCopy = [...targetList];
+    targetListCopy[currentObj] = data;
+    setTargetList(targetListCopy);
+    setMenu(!menu);
   }
   return (
     <div
@@ -40,16 +51,18 @@ function TargetList() {
         left: `${listXPosition + 10}px`,
       }}
     >
-      {targetList.map((target, index) => (
-        <div
-          key={index}
-          className="listBox"
-          onClick={() => handleTarget(target)}
-        >
-          <img src={target.image} className="listBoxImg" alt=""></img>
-          <p>{target.name}</p>
-        </div>
-      ))}
+      {targetList.map((target, index) =>
+        !target.status ? (
+          <div
+            key={index}
+            className="listBox"
+            onClick={() => handleTarget(target)}
+          >
+            <img src={target.image} className="listBoxImg" alt=""></img>
+            <p>{target.name}</p>
+          </div>
+        ) : null
+      )}
     </div>
   );
 }

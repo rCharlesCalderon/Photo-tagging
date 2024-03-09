@@ -16,7 +16,7 @@ function AnimeMap() {
   const [targetList, setTargetList] = useState(null);
   useEffect(() => {
     fetchTargetImages();
-  }, [menu]);
+  }, []);
 
   function fetchTargetImages() {
     fetch("http://localhost:3000/fetchTargetImages")
@@ -54,6 +54,9 @@ function AnimeMap() {
           targetList,
           xPosition,
           yPosition,
+          menu,
+          setMenu,
+          setTargetList,
         }}
       >
         <img
