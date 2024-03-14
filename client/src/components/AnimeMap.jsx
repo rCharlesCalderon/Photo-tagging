@@ -5,14 +5,17 @@ import TargetCore from "./TargetCore.jsx";
 import TargetList from "./TargetList.jsx";
 const targetContext = createContext(null);
 function AnimeMap() {
-  //USE JSX TO CONDITIONALLY RENDER THE TAGETCORE AND BOX
-  //ADD THE IMAGES INTO THE BOX, USESTATE UPDATE THE PICTURES LATER
-
   const [menu, setMenu] = useState(false);
-  const [xPosition, setXPosition] = useState(0);
-  const [yPosition, setYPosition] = useState(0);
-  const [listXPosition, setXListPosition] = useState(0);
-  const [listYPosition, setYListPosition] = useState(0);
+  //targetCore
+  const [targetCoreX, setTargetCoreXPosition] = useState(0);
+  const [targetCoreY, setTargetCoreYPosition] = useState(0);
+  //TargetList
+  const [targetListX, setTargetListXPosition] = useState(0);
+  const [targetListY, setTargetListYPosition] = useState(0);
+  //X Y coordinates
+  const [cordX, setCordX] = useState(0);
+  const [cordY, setCordY] = useState(0);
+  //targetList images
   const [targetList, setTargetList] = useState(null);
   useEffect(() => {
     fetchTargetImages();
@@ -32,28 +35,33 @@ function AnimeMap() {
   }
 
   const handlePosition = (e) => {
-    //-40-41 is for centering the TargetCore on the cursor
     let xPositioning = e.clientX + window.scrollX;
-    console.log(xPositioning, "Correct X");
     let yPositioning = e.clientY + window.scrollY;
-    console.log(yPositioning, "Correct Y");
-    let listPositionX = xPositioning;
-    let listPositionY = yPositioning;
-    setXPosition(xPositioning);
-    setYPosition(yPositioning);
-    setXListPosition(listPositionX);
-    setYListPosition(listPositionY);
+    let targetCordX = (e.clientX / window.innerWidth) * 100;
+    let targetCordY = (e.clientY / window.innerHeight) * 100;
+    setTargetCoreXPosition(xPositioning);
+    setTargetCoreYPosition(yPositioning);
+    setTargetListXPosition(xPositioning);
+    setTargetListYPosition(yPositioning);
+    setCordX(targetCordX);
+    setCordY(targetCordY);
+    //TOP LEFT 39X 57Y
+    //BOTTOM RIGHT 44X 64Y
+    console.log(targetCordX, "X");
+    console.log(targetCordY, "Y");
   };
 
   return (
     <>
       <targetContext.Provider
         value={{
-          listXPosition,
-          listYPosition,
+          targetListX,
+          targetListY,
           targetList,
-          xPosition,
-          yPosition,
+          targetCoreX,
+          targetCoreY,
+          cordX,
+          cordY,
           menu,
           setMenu,
           setTargetList,

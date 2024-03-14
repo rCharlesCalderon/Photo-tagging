@@ -7,11 +7,11 @@ import "../styles/TargetList.css";
 function TargetList() {
   // useContext shit
   const {
-    listXPosition,
-    listYPosition,
+    targetListX,
+    targetListY,
     targetList,
-    xPosition,
-    yPosition,
+    cordX,
+    cordY,
     menu,
     setMenu,
     setTargetList,
@@ -19,8 +19,8 @@ function TargetList() {
   function handleTarget(target) {
     const targetData = {
       ...target,
-      x: xPosition,
-      y: yPosition,
+      x: cordX,
+      y: cordY,
     };
     fetch(`http://localhost:3000/${target.name}`, {
       method: "POST",
@@ -39,7 +39,9 @@ function TargetList() {
     const currentObj = targetList.findIndex((obj) => obj.name === data.name);
     const targetListCopy = [...targetList];
     targetListCopy[currentObj] = data;
+
     setTargetList(targetListCopy);
+    console.log(targetList);
     setMenu(!menu);
   }
   return (
@@ -47,8 +49,8 @@ function TargetList() {
       className="targetList"
       style={{
         //+10 is just for styling purposes
-        top: `${listYPosition + 10}px`,
-        left: `${listXPosition + 10}px`,
+        top: `${targetListY + 10}px`,
+        left: `${targetListX + 10}px`,
       }}
     >
       {targetList.map((target, index) =>
