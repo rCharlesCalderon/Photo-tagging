@@ -1,7 +1,33 @@
-.Navbar{
+.header{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border: 1px green solid;
+    background: transparent;
     width: 100%;
     height: 90px;
+    position: fixed;
+    z-index: 10px;
+}
+
+.thing-tracker {
+    display: flex;
+    border: 1px red solid;
+    width: auto;
+  height: 100%;
+}
+
+.thing-list{
+    display: flex;
+    border: 1px black solid;
+   justify-content: center;
+   align-items: center;
+   gap: 4px;
+   color: white;
+}
+
+.thing-found {
+    text-decoration: line-through;
+    filter: grayscale(80%);
+   color: #C0C0C0; 
 }

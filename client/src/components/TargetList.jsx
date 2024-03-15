@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "../index.css";
-import { targetContext } from "./AnimeMap"; // Import the context
+import { targetContext } from "./Midnight"; // Import the context
 
 import "../styles/TargetList.css";
 

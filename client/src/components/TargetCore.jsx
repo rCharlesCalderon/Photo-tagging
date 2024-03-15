@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import "../index.css";
 import "../styles/TargetCore.css";
-import { targetContext } from "./AnimeMap";
+import { targetContext } from "./Midnight";
 function TargetCore() {
   const { targetCoreX, targetCoreY } = useContext(targetContext);
   return (

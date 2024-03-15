@@ -1,7 +1,7 @@
 .Anime-Map {
     image-rendering: auto;
     border: 1px green solid;
-    height: 100%;
+    height: auto;
     width: 100%;
 }
 

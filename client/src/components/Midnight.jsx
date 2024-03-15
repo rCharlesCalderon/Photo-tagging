@@ -3,8 +3,9 @@ import "../index.css";
 import "../styles/AnimeMap.css";
 import TargetCore from "./TargetCore.jsx";
 import TargetList from "./TargetList.jsx";
+import Header from "./Header.jsx";
 const targetContext = createContext(null);
-function AnimeMap() {
+function Midnight() {
   const [menu, setMenu] = useState(false);
   //targetCore
   const [targetCoreX, setTargetCoreXPosition] = useState(0);
@@ -35,10 +36,14 @@ function AnimeMap() {
   }
 
   const handlePosition = (e) => {
+    let midnight = document.querySelector(".midnight");
     let xPositioning = e.clientX + window.scrollX;
     let yPositioning = e.clientY + window.scrollY;
-    let targetCordX = (e.clientX / window.innerWidth) * 100;
-    let targetCordY = (e.clientY / window.innerHeight) * 100;
+
+    let containerWidth = midnight.clientWidth;
+    let containerHeight = midnight.clientHeight;
+    let targetCordX = (e.clientX / containerWidth) * 100;
+    let targetCordY = (e.clientY / containerHeight) * 100;
     setTargetCoreXPosition(xPositioning);
     setTargetCoreYPosition(yPositioning);
     setTargetListXPosition(xPositioning);
@@ -67,10 +72,11 @@ function AnimeMap() {
           setTargetList,
         }}
       >
+        <Header />
         <img
           src="./images/midnight.png"
           alt=""
-          className="Anime-Map"
+          className="midnight"
           onClick={handleGame}
         ></img>
         {menu && <TargetCore />}
@@ -80,4 +86,4 @@ function AnimeMap() {
   );
 }
 
-export { AnimeMap, targetContext };
+export { Midnight, targetContext };
