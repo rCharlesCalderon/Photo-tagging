@@ -1,0 +1,25 @@
+.target-status{
+    position: fixed;
+    height: 20px;
+    width: 100px;
+    left: 50%;
+    top: 20%;
+    text-align: center;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+.target-found{
+    color: white;
+    animation: blinker 2s linear infinite;
+    background: green;
+}
+
+.target-missed {
+    color: white;
+    animation: blinker 2s linear infinite;
+    background: red;
+}

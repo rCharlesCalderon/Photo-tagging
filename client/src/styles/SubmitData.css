@@ -1,0 +1,9 @@
+.submit-container{
+    display: flex;
+    flex-direction: column;
+    border: 1px red solid;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    width: 10%;
+}

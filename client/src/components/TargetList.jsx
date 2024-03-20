@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "../index.css";
 import { targetContext } from "./Midnight"; // Import the context
 
@@ -9,13 +9,15 @@ function TargetList() {
   const {
     targetListX,
     targetListY,
-    targetList,
+    targetData,
     cordX,
     cordY,
     menu,
     setMenu,
-    setTargetList,
+    setTargetStatus,
+    setTargetData,
   } = useContext(targetContext);
+
   function handleTarget(target) {
     const targetData = {
       ...target,
@@ -36,13 +38,19 @@ function TargetList() {
   }
 
   function handleTargetValidation(data) {
-    const currentObj = targetList.findIndex((obj) => obj.name === data.name);
-    const targetListCopy = [...targetList];
+    const currentObj = targetData.findIndex((obj) => obj.name === data.name);
+    const targetListCopy = [...targetData];
     targetListCopy[currentObj] = data;
+    //check the data to see if status is true then setTargetStaus here
+    setTargetData(targetListCopy);
 
-    setTargetList(targetListCopy);
-    console.log(targetList);
     setMenu(!menu);
+
+    if (data.status === true) {
+      setTargetStatus(data.name);
+    } else {
+      setTargetStatus("Try Again");
+    }
   }
   return (
     <div
@@ -53,7 +61,7 @@ function TargetList() {
         left: `${targetListX + 10}px`,
       }}
     >
-      {targetList.map((target, index) =>
+      {targetData.map((target, index) =>
         !target.status ? (
           <div
             key={index}

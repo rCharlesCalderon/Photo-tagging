@@ -31,10 +31,25 @@ app.post("/Ghost", (req, res) => {
   console.log(req.body);
 
   if (
-    req.body.y > 11.000552791597567 &&
-    req.body.y < 14.870093974571585 &&
+    req.body.y > 14.216478190630049 &&
+    req.body.y < 17.932148626817447 &&
     req.body.x > 39.31436907366886 &&
     req.body.x < 44.63894967177243
+  ) {
+    req.body.status = true;
+  }
+  res.json(req.body);
+});
+
+app.post("/Cow", (req, res) => {
+  //Based off VH and VW of img X,Y
+  console.log(req.body);
+
+  if (
+    req.body.y > 18.12297734627832 &&
+    req.body.y < 19.902912621359224 &&
+    req.body.x > 61.94690265486725 &&
+    req.body.x < 63.93805309734514
   ) {
     req.body.status = true;
   }

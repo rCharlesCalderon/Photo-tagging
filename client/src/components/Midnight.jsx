@@ -1,9 +1,11 @@
 import { useEffect, useState, useContext, createContext } from "react";
 import "../index.css";
-import "../styles/AnimeMap.css";
+import "../styles/Midnight.css";
 import TargetCore from "./TargetCore.jsx";
 import TargetList from "./TargetList.jsx";
+import TargetStatus from "./TargetStatus.jsx";
 import Header from "./Header.jsx";
+import SubmitData from "./SubmitData.jsx";
 const targetContext = createContext(null);
 function Midnight() {
   const [menu, setMenu] = useState(false);
@@ -16,8 +18,12 @@ function Midnight() {
   //X Y coordinates
   const [cordX, setCordX] = useState(0);
   const [cordY, setCordY] = useState(0);
-  //targetList images
-  const [targetList, setTargetList] = useState(null);
+  //targetData is the data from backend in the fetchTargetImages
+  const [targetData, setTargetData] = useState(null);
+
+  const [targetStat, setTargetStatus] = useState(false);
+
+  const [scoreboard, setScoreboard] = useState(false);
   useEffect(() => {
     fetchTargetImages();
   }, []);
@@ -27,7 +33,7 @@ function Midnight() {
       .then((res) => {
         return res.json();
       })
-      .then((data) => setTargetList(data));
+      .then((data) => setTargetData(data));
   }
 
   function handleGame(event) {
@@ -42,8 +48,8 @@ function Midnight() {
 
     let containerWidth = midnight.clientWidth;
     let containerHeight = midnight.clientHeight;
-    let targetCordX = (e.clientX / containerWidth) * 100;
-    let targetCordY = (e.clientY / containerHeight) * 100;
+    let targetCordX = (xPositioning / containerWidth) * 100;
+    let targetCordY = (yPositioning / containerHeight) * 100;
     setTargetCoreXPosition(xPositioning);
     setTargetCoreYPosition(yPositioning);
     setTargetListXPosition(xPositioning);
@@ -62,17 +68,22 @@ function Midnight() {
         value={{
           targetListX,
           targetListY,
-          targetList,
+          targetData,
+          setTargetData,
           targetCoreX,
           targetCoreY,
           cordX,
           cordY,
+          targetStat,
+          setTargetStatus,
           menu,
           setMenu,
-          setTargetList,
+          scoreboard,
+          setScoreboard,
         }}
       >
         <Header />
+        {targetStat && <TargetStatus />}
         <img
           src="./images/midnight.png"
           alt=""
@@ -81,6 +92,7 @@ function Midnight() {
         ></img>
         {menu && <TargetCore />}
         {menu && <TargetList />}
+        {!scoreboard && <SubmitData />}
       </targetContext.Provider>
     </>
   );

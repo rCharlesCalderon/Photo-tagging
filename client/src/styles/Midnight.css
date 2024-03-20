@@ -1,16 +1,14 @@
-.Anime-Map {
+.midnight {
     image-rendering: auto;
-    border: 1px green solid;
     height: auto;
     width: 100%;
+    padding-top: 4.8%;
 }
 
 .target-box{
     display: flex;
     justify-content: center;
     align-items: center;
-   
-    border: 2px green solid;
     height: 100px;
     width: 100px;
     border-radius: 50px;
@@ -27,7 +25,6 @@
     min-height: 240px;
     width: 150px;
     border-radius: 10px;
-    border: 1px black solid;
       background: lightblue;
        flex-direction: column;
        gap: 5px;
@@ -44,6 +41,5 @@
     gap: 10px;
     align-items: center;
     width: 100%;
-    border: 1px black solid;
     height: 50px;
 }

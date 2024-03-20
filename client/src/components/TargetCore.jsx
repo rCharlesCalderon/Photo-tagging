@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import "../index.css";
 import "../styles/TargetCore.css";
-import { targetContext } from "./Midnight";
+import { targetContext } from "./Midnight.jsx";
 function TargetCore() {
   const { targetCoreX, targetCoreY } = useContext(targetContext);
   return (
