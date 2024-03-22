@@ -6,9 +6,7 @@ import { targetContext } from "./Midnight";
 function SubmitData() {
   const { targetData, scoreboard, setScoreboard, menu } =
     useContext(targetContext);
-  useEffect(() => {
-    console.log("slit");
-  }, []);
+
 
   function handleScoreboarrd() {}
   return (

@@ -1,9 +1,12 @@
 .submit-container{
     display: flex;
     flex-direction: column;
+    position: absolute;
     border: 1px red solid;
     justify-content: center;
     align-items: center;
-    height: 10%;
-    width: 10%;
+    height: 30%;
+    width: 25%;
+    top: 20%;
+    left: 40%;
 }

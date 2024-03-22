@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, createContext } from "react";
+import { useEffect, useState, createContext } from "react";
 import "../index.css";
 import "../styles/Midnight.css";
 import TargetCore from "./TargetCore.jsx";
@@ -6,6 +6,7 @@ import TargetList from "./TargetList.jsx";
 import TargetStatus from "./TargetStatus.jsx";
 import Header from "./Header.jsx";
 import SubmitData from "./SubmitData.jsx";
+import { func } from "prop-types";
 const targetContext = createContext(null);
 function Midnight() {
   const [menu, setMenu] = useState(false);
@@ -23,10 +24,45 @@ function Midnight() {
 
   const [targetStat, setTargetStatus] = useState(false);
 
-  const [scoreboard, setScoreboard] = useState(false);
+  const [scoreboard, setScoreboard] = useState(null);
+
+  const [time, setTime] = useState({
+    sec: 0,
+    min: 0,
+    hr: 0,
+  });
+
+  const [intervalId, setIntervalId] = useState();
+
+  const updateTimer = () => {
+    setTime((prev) => {
+      let newTime = { ...prev };
+      if (newTime.sec < 59) newTime.sec += 1;
+      else {
+        newTime.min += 1;
+        newTime.sec = 0;
+      }
+      if (newTime.min === 60) {
+        newTime.min = 0;
+        newTime.hr += 1;
+      }
+      return newTime;
+    });
+  };
+
   useEffect(() => {
     fetchTargetImages();
+    let id = setInterval(updateTimer, 1000);
+    setIntervalId(id);
+
+    return () => clearInterval(id);
   }, []);
+
+  useEffect(() => {
+    if (targetData !== null && checkAllTargets()) {
+      setScoreboard(true);
+    }
+  }, [targetData]);
 
   function fetchTargetImages() {
     fetch("http://localhost:3000/fetchTargetImages")
@@ -35,7 +71,14 @@ function Midnight() {
       })
       .then((data) => setTargetData(data));
   }
-
+  function checkAllTargets() {
+    const checkAllTargets = targetData.every((obj) => {
+      if (obj.status) {
+        return true;
+      }
+    });
+    return checkAllTargets;
+  }
   function handleGame(event) {
     setMenu(!menu);
     handlePosition(event);
@@ -56,10 +99,6 @@ function Midnight() {
     setTargetListYPosition(yPositioning);
     setCordX(targetCordX);
     setCordY(targetCordY);
-    //TOP LEFT 39X 57Y
-    //BOTTOM RIGHT 44X 64Y
-    console.log(targetCordX, "X");
-    console.log(targetCordY, "Y");
   };
 
   return (
@@ -90,9 +129,12 @@ function Midnight() {
           className="midnight"
           onClick={handleGame}
         ></img>
+        <h2>{`${time.hr < 10 ? 0 : ""}${time.hr} : ${time.min < 10 ? 0 : ""}${
+          time.min
+        } : ${time.sec < 10 ? 0 : ""}${time.sec}`}</h2>
         {menu && <TargetCore />}
         {menu && <TargetList />}
-        {!scoreboard && <SubmitData />}
+        {scoreboard && <SubmitData />}
       </targetContext.Provider>
     </>
   );

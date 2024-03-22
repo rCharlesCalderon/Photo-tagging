@@ -1,6 +1,7 @@
 import "../styles/Maps.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+
 function Maps() {
   const [images, setImages] = useState(null);
 
