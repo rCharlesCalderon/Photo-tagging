@@ -1,8 +1,10 @@
-.midnight {
+.map-image {
     image-rendering: auto;
     height: auto;
     width: 100%;
-    padding-top: 4.8%;
+    padding-top: 9vh;
+ cursor: crosshair;
+    overflow: hidden;
 }
 
 .target-box{

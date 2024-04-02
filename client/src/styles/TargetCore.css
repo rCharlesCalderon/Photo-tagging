@@ -2,11 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px green solid;
+    border: 1px white dashed;
     height: 80px;
     width: 80px;
     position: absolute;
-    
+    background: #fff6;
     border-radius: 40px;
-    
+   
 }

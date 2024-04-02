@@ -6,6 +6,7 @@ const submitSchema = new Schema({
   seconds: Number,
   minutes: Number,
   hours: Number,
+  date: String,
 });
 
 module.exports = submitSchema;

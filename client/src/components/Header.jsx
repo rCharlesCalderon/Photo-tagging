@@ -1,15 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "../styles/Header.css";
 import { targetContext } from "./Midnight";
+import { Link } from "react-router-dom";
 function Header() {
-  const { targetList } = useContext(targetContext);
+  const { targetData, time } = useContext(targetContext);
+
   return (
     <div className="header">
-      <span>Title goes here</span>
-      <span>TIMER GOES HERE</span>
+      <Link to="/">
+        <span className="title">Find the Things!</span>{" "}
+      </Link>
+      <h2>{`${time.hr < 10 ? 0 : ""}${time.hr} : ${time.min < 10 ? 0 : ""}${
+        time.min
+      } : ${time.sec < 10 ? 0 : ""}${time.sec}`}</h2>
+
       <div className="thing-tracker">
-        {targetList &&
-          targetList.map((target, index) =>
+        {targetData &&
+          targetData.map((target, index) =>
             target.status ? (
               <div key={index} className="thing-list">
                 <img
@@ -21,7 +28,7 @@ function Header() {
               </div>
             ) : (
               <div key={index} className="thing-list">
-                <img src={target.image} className="listBoxImg" alt="" />
+                <img src={target.image} className="thing-img" alt="" />
                 <p>{target.name}</p>
               </div>
             )

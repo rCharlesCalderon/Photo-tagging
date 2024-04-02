@@ -6,9 +6,11 @@ import TargetList from "./TargetList.jsx";
 import TargetStatus from "./TargetStatus.jsx";
 import Header from "./Header.jsx";
 import SubmitData from "./SubmitData.jsx";
-import { func } from "prop-types";
+import { useParams } from "react-router-dom";
+
 const targetContext = createContext(null);
 function Midnight() {
+  const { Map } = useParams();
   const [menu, setMenu] = useState(false);
   //targetCore
   const [targetCoreX, setTargetCoreXPosition] = useState(0);
@@ -54,7 +56,7 @@ function Midnight() {
     fetchTargetImages();
     let id = setInterval(updateTimer, 1000);
     setIntervalId(id);
-
+    console.log(Map, "adadawdwa");
     return () => clearInterval(id);
   }, []);
 
@@ -65,7 +67,7 @@ function Midnight() {
   }, [targetData]);
 
   function fetchTargetImages() {
-    fetch("http://localhost:3000/fetchTargetImages")
+    fetch(`http://localhost:3000/${Map}Targets`)
       .then((res) => {
         return res.json();
       })
@@ -85,7 +87,7 @@ function Midnight() {
   }
 
   const handlePosition = (e) => {
-    let midnight = document.querySelector(".midnight");
+    let midnight = document.querySelector(".map-image");
     let xPositioning = e.clientX + window.scrollX;
     let yPositioning = e.clientY + window.scrollY;
 
@@ -93,12 +95,18 @@ function Midnight() {
     let containerHeight = midnight.clientHeight;
     let targetCordX = (xPositioning / containerWidth) * 100;
     let targetCordY = (yPositioning / containerHeight) * 100;
+    console.log(targetCordX, "X");
+    console.log(targetCordY, "Y");
     setTargetCoreXPosition(xPositioning);
     setTargetCoreYPosition(yPositioning);
-    setTargetListXPosition(xPositioning);
-    setTargetListYPosition(yPositioning);
     setCordX(targetCordX);
     setCordY(targetCordY);
+    setTargetListXPosition(xPositioning);
+    if (targetCordY > 86.31636562671045) {
+      setTargetListYPosition(yPositioning - 240);
+    } else {
+      setTargetListYPosition(yPositioning);
+    }
   };
 
   return (
@@ -119,19 +127,22 @@ function Midnight() {
           setMenu,
           scoreboard,
           setScoreboard,
+          time,
+          setTime,
+          intervalId,
+          setIntervalId,
+          Map,
         }}
       >
         <Header />
         {targetStat && <TargetStatus />}
         <img
-          src="./images/midnight.png"
+          src={`./images/${Map}.png`}
           alt=""
-          className="midnight"
+          className="map-image"
           onClick={handleGame}
         ></img>
-        <h2>{`${time.hr < 10 ? 0 : ""}${time.hr} : ${time.min < 10 ? 0 : ""}${
-          time.min
-        } : ${time.sec < 10 ? 0 : ""}${time.sec}`}</h2>
+
         {menu && <TargetCore />}
         {menu && <TargetList />}
         {scoreboard && <SubmitData />}

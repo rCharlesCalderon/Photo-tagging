@@ -1,0 +1,40 @@
+.Leaderboard-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    color: white;
+    gap: 10px;
+    
+}
+
+
+.table-container{
+    border-radius: 10px;
+    border: 2px white solid;
+    white-space: nowrap;
+    width: 55%;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    
+}
+
+.map-title{
+    color: white;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+
+.table{
+    background: rgba(255, 255, 255, 0.674);
+  
+}
+
+.table th:nth-child(1) {
+     border-radius: 5px 0px 0px 0px;
+}
+
+.table th:nth-child(4) {
+     border-radius: 0px 5px 0px 0px;
+    
+}

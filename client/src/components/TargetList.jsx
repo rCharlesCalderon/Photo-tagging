@@ -58,6 +58,7 @@ function TargetList() {
       style={{
         //+10 is just for styling purposes
         top: `${targetListY + 10}px`,
+
         left: `${targetListX + 10}px`,
       }}
     >

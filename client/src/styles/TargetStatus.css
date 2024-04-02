@@ -1,10 +1,12 @@
 .target-status{
     position: fixed;
-    height: 20px;
-    width: 100px;
-    left: 50%;
+    height: 3%;
+    width: 8%;
+    left: 47%;
     top: 20%;
+    border-radius: 5px;
     text-align: center;
+    z-index: 0;
 }
 
 @keyframes blinker {

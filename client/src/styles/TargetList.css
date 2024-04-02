@@ -1,29 +1,34 @@
 .targetList {
     display: flex;
     flex-direction: column;
-    border: 1px green solid;
+  
     position: absolute;
     border-radius: 10px;
-    min-height: 250px;
     width: 140px;
-     background-color: #5e374a;
+     background: radial-gradient(rgb(19, 30, 37) 24.5%, rgb(19, 30, 37) 66%);
      color: white;
      font-size: 16px;
+   overflow: hidden;
 }
 
 .listBox {
     display: flex;
     align-items: center;
     gap: 7px;
-    background-color: #5e374a;
+    background: radial-gradient(rgb(19, 30, 37) 24.5%, rgb(19, 30, 37) 66%);
     color: white;
     font-size: 17px;
     padding: 5px;
     border-radius: 10px;
+   
 }
 
 .listBoxImg{
     border-radius: 20px;
     height: 40px;
     width: 40px
+}
+
+.listBox:hover{
+     background: #fff6;
 }
