@@ -1,14 +1,15 @@
 .targetList {
     display: flex;
     flex-direction: column;
-  
+    
     position: absolute;
     border-radius: 10px;
-    width: 140px;
+    transform: translateX(50%);
      background: radial-gradient(rgb(19, 30, 37) 24.5%, rgb(19, 30, 37) 66%);
      color: white;
      font-size: 16px;
    overflow: hidden;
+   z-index: 10000;
 }
 
 .listBox {

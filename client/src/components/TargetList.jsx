@@ -56,10 +56,8 @@ function TargetList() {
     <div
       className="targetList"
       style={{
-        //+10 is just for styling purposes
-        top: `${targetListY + 10}px`,
-
-        left: `${targetListX + 10}px`,
+        bottom: "-10px",
+        right: `0px`,
       }}
     >
       {targetData.map((target, index) =>

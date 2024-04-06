@@ -95,6 +95,7 @@ function Midnight() {
     let containerHeight = midnight.clientHeight;
     let targetCordX = (xPositioning / containerWidth) * 100;
     let targetCordY = (yPositioning / containerHeight) * 100;
+
     console.log(targetCordX, "X");
     console.log(targetCordY, "Y");
     setTargetCoreXPosition(xPositioning);
@@ -103,7 +104,7 @@ function Midnight() {
     setCordY(targetCordY);
     setTargetListXPosition(xPositioning);
     if (targetCordY > 86.31636562671045) {
-      setTargetListYPosition(yPositioning - 240);
+      setTargetListYPosition(yPositioning);
     } else {
       setTargetListYPosition(yPositioning);
     }
@@ -144,7 +145,7 @@ function Midnight() {
         ></img>
 
         {menu && <TargetCore />}
-        {menu && <TargetList />}
+
         {scoreboard && <SubmitData />}
       </targetContext.Provider>
     </>
