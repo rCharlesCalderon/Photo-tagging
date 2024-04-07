@@ -6,11 +6,10 @@ const mongoose = require("mongoose");
 
 const { ObjectId } = require("mongodb");
 const dotenv = require("dotenv").config();
-const userName = process.env.MONGODB_USER_KEY;
-const password = process.env.MONGODB_PASSWORD;
+
 const port = process.env.PORT || 5002;
 mongoose.connect(
-  `mongodb+srv://${userName}:${password}@inventory.smc01ik.mongodb.net/?retryWrites=true&w=majority&appName=Inventory`
+  `mongodb+srv://${process.env.MONGODB_USER_KEY}:${process.env.MONGODB_PASSWORD}@inventory.smc01ik.mongodb.net/?retryWrites=true&w=majority&appName=Inventory`
 );
 const db = mongoose.connection.useDb("Photo-Tagging");
 
