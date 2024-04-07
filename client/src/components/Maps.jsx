@@ -46,6 +46,7 @@ function Maps() {
               >
                 <img src={image.imageSrc} alt="" className="image"></img>
                 <span>{image.name}</span>
+                {console.log(image.mapURL)}
                 <Link to={`/${image.mapURL}`} className="map-btn">
                   Start Game
                 </Link>

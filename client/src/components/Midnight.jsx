@@ -73,12 +73,11 @@ function Midnight() {
       .then((data) => setTargetData(data));
   }
   function checkAllTargets() {
-    const checkAllTargets = targetData.every((obj) => {
-      if (obj.status) {
-        return true;
-      }
+    const allTargetsAreComplete = targetData.every((obj) => {
+      return obj.status;
     });
-    return checkAllTargets;
+
+    return allTargetsAreComplete;
   }
   function handleGame(event) {
     setMenu(!menu);
