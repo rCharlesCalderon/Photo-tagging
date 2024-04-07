@@ -139,7 +139,7 @@ function Midnight() {
         <Header />
         {targetStat && <TargetStatus />}
         <img
-          src={`./images/${Map}.png`}
+          src={`./images/${Map}.PNG`}
           alt=""
           className="map-image"
           onClick={handleGame}

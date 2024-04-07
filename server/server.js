@@ -23,7 +23,7 @@ app.get("/Home", (req, res) => {
       mapURL: "Jungle",
     },
     {
-      imageSrc: "../images/midnight.png",
+      imageSrc: "../images/Midnight.PNG",
       name: "Midnight Metropolis",
       mapURL: "Midnight",
     },
