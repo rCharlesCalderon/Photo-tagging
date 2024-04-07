@@ -11,7 +11,7 @@ function Leaderboard() {
   }, [mapIndex]);
 
   function handleLeaderboardData() {
-    fetch(`https://social-ants-production.up.railway.app/${mapIndex}`, {
+    fetch(`https://social-ants-production.up.railway.app/Scores${mapIndex}`, {
       method: "GET",
     })
       .then((res) => res.json())
