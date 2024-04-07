@@ -3,7 +3,7 @@ import { LeaderboardContext } from "./Maps";
 import { Link } from "react-router-dom";
 import "../styles/LeaderboardHeader.css";
 
-function LeaderBoardHeader({}) {
+function LeaderBoardHeader() {
   const { showLeaderboard, setShowLeaderboard, setMapIndex } =
     useContext(LeaderboardContext);
 
