@@ -13,7 +13,7 @@ mongoose.connect(
 );
 const db = mongoose.connection.useDb("Photo-Tagging");
 // Allow requests from http://localhost:3001
-app.use(cors({ origin: "http://localhost:3001" }));
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.get("/Home", (req, res) => {
   const images = [
