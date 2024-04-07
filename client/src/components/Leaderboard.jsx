@@ -19,7 +19,6 @@ function Leaderboard() {
   }
   return (
     <div className="Leaderboard-container">
-      {scoreData && console.log(scoreData)}
       {scoreData && <p className="map-title">{scoreData.mapName}</p>}
       {scoreData && (
         <table className="table-container">
@@ -30,7 +29,7 @@ function Leaderboard() {
               <th>Time</th>
               <th>Date</th>
             </tr>
-            {scoreData && console.log(scoreData)}
+
             {scoreData &&
               scoreData.mapData.map((score, index) => {
                 return (
