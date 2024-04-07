@@ -10,7 +10,7 @@ const userName = process.env.MONGODB_USER_KEY;
 const password = process.env.MONGODB_PASSWORD;
 const port = process.env.PORT || 5002;
 mongoose.connect(
-  `mongodb+srv://Rubcal123:Rubcal123@inventory.smc01ik.mongodb.net/?retryWrites=true&w=majority&appName=Inventory`
+  `mongodb+srv://${userName}:${password}@inventory.smc01ik.mongodb.net/?retryWrites=true&w=majority&appName=Inventory`
 );
 const db = mongoose.connection.useDb("Photo-Tagging");
 
