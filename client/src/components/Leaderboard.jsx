@@ -8,7 +8,7 @@ function Leaderboard() {
     if (mapIndex !== null) {
       handleLeaderboardData();
     }
-  }, [mapIndex]);
+  }, [mapIndex]); // eslint-disable-line
 
   function handleLeaderboardData() {
     fetch(`https://social-ants-production.up.railway.app/Scores${mapIndex}`, {

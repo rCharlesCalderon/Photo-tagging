@@ -11,7 +11,7 @@ function SubmitData() {
   useEffect(() => {
     pauseOrResume();
     addBackgroundEffect();
-  }, []);
+  }, []); // eslint-disable-line
 
   function addBackgroundEffect() {
     let img = document.querySelector(".map-image");

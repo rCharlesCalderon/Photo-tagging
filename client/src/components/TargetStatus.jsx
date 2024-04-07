@@ -10,7 +10,7 @@ function TargetStatus() {
     setTimeout(() => {
       setTargetStatus(null);
     }, 3000);
-  }, [targetStat]);
+  }, [targetStat]); // eslint-disable-line
 
   return (
     <div className="target-status">

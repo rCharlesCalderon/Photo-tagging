@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles/LeaderboardHeader.css";
 
 function LeaderBoardHeader({}) {
-  const { showLeaderboard, setShowLeaderboard, mapIndex, setMapIndex } =
+  const { showLeaderboard, setShowLeaderboard, setMapIndex } =
     useContext(LeaderboardContext);
 
   useEffect(() => {
@@ -13,7 +13,8 @@ function LeaderBoardHeader({}) {
     } else {
       setMapIndex(null);
     }
-  }, [showLeaderboard]);
+  }, [showLeaderboard]); // eslint-disable-line
+
   return (
     <div className="leaderboard-Header">
       <Link to="/" className="leaderboard-title">

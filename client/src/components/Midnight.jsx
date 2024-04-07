@@ -58,13 +58,13 @@ function Midnight() {
     setIntervalId(id);
     console.log(Map, "adadawdwa");
     return () => clearInterval(id);
-  }, []);
+  }, []); // eslint-disable-line
 
   useEffect(() => {
     if (targetData !== null && checkAllTargets()) {
       setScoreboard(true);
     }
-  }, [targetData]);
+  }, [targetData]); // eslint-disable-line
 
   function fetchTargetImages() {
     fetch(`https://social-ants-production.up.railway.app/${Map}Targets`)
