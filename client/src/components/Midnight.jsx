@@ -56,7 +56,6 @@ function Midnight() {
     fetchTargetImages();
     let id = setInterval(updateTimer, 1000);
     setIntervalId(id);
-    console.log(Map, "adadawdwa");
     return () => clearInterval(id);
   }, []); // eslint-disable-line
 
@@ -75,13 +74,12 @@ function Midnight() {
   }
   function checkAllTargets() {
     const checkAllTargets = targetData.every((obj) => {
-      return true;
+      if (obj.status) {
+        return true;
+      }
     });
     return checkAllTargets;
   }
-
-  
-
   function handleGame(event) {
     setMenu(!menu);
     handlePosition(event);
