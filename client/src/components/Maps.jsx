@@ -9,7 +9,7 @@ function Maps() {
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [mapIndex, setMapIndex] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:3000/Home", {
+    fetch("https://social-ants-production.up.railway.app/Home", {
       mode: "cors",
     })
       .then((res) => res.json())
