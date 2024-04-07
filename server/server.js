@@ -5,6 +5,7 @@ const submitSchema = require("./controller/SubmitDataSchema.js");
 const mongoose = require("mongoose");
 
 const { ObjectId } = require("mongodb");
+const res = require("express/lib/response.js");
 const dotenv = require("dotenv").config();
 const userName = process.env.MONGODB_USER_KEY;
 const password = process.env.MONGODB_PASSWORD;
@@ -427,9 +428,6 @@ app.get("/Scores2", async (req, res) => {
   res.json({ mapName: "Crumbling Creek", mapData: sortData });
 });
 
-
-
-
-app.listen(3000, () => {
-  console.log("server started 3000");
+app.listen(process.env.PORT || 3000, () => {
+  res.send("welcome to the server");
 });
