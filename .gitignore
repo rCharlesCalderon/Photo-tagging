@@ -22,5 +22,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-#mongoDB key and password data
-.env
