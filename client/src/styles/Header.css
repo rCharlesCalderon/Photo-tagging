@@ -8,7 +8,7 @@
     position: fixed;
     padding: 0px 10px 0px 10px;
   background: radial-gradient(  rgb(19, 30, 37) 24.5%, rgb(19, 30, 37) 66%);
-   z-index: 1;
+   z-index: 50;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .header h2 {

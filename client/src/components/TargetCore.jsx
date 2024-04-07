@@ -13,7 +13,7 @@ function TargetCore() {
         top: `${targetCoreY - 41}px`,
         width: `100px`,
         position: "absolute",
-        zIndex: 9999,
+        zIndex: 30,
       }}
     >
       <TargetList />
