@@ -1,5 +1,5 @@
 import "../styles/Maps.css";
-import { useState, useEffect, useContext, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
 import { Link } from "react-router-dom";
 import LeaderBoardHeader from "./LeaderboardHeader";
 import Leaderboard from "./Leaderboard";
@@ -9,7 +9,7 @@ function Maps() {
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [mapIndex, setMapIndex] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:3000/Home", {
+    fetch("https://social-ants-production.up.railway.app/Home", {
       mode: "cors",
     })
       .then((res) => res.json())

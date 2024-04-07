@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "../index.css";
 import { targetContext } from "./Midnight"; // Import the context
 
@@ -24,7 +24,7 @@ function TargetList() {
       x: cordX,
       y: cordY,
     };
-    fetch(`http://localhost:3000/${target.name}`, {
+    fetch(`https://social-ants-production.up.railway.app/${target.name}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

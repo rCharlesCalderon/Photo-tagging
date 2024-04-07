@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { LeaderboardContext } from "./Maps";
 import { Link } from "react-router-dom";
 import "../styles/LeaderboardHeader.css";

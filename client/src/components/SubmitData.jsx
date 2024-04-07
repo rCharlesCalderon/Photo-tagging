@@ -6,16 +6,7 @@ import { useParams } from "react-router-dom";
 
 function SubmitData() {
   const { Map } = useParams();
-  const {
-    targetData,
-    scoreboard,
-    setScoreboard,
-    menu,
-    time,
-    setIntervalId,
-    intervalId,
-    updateTimer,
-  } = useContext(targetContext);
+  const { time, setIntervalId, intervalId } = useContext(targetContext);
 
   useEffect(() => {
     pauseOrResume();
@@ -31,7 +22,7 @@ function SubmitData() {
     const usernameInput = document.querySelector(".submit-input").value;
 
     console.log(Map);
-    fetch(`http://localhost:3000/${Map}Leaderboard`, {
+    fetch(`https://social-ants-production.up.railway.app/${Map}Leaderboard`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

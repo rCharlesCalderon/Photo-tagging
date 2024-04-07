@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import "../styles/Header.css";
 import { targetContext } from "./Midnight";
 import { Link } from "react-router-dom";

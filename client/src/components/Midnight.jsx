@@ -2,7 +2,7 @@ import { useEffect, useState, createContext } from "react";
 import "../index.css";
 import "../styles/Midnight.css";
 import TargetCore from "./TargetCore.jsx";
-import TargetList from "./TargetList.jsx";
+
 import TargetStatus from "./TargetStatus.jsx";
 import Header from "./Header.jsx";
 import SubmitData from "./SubmitData.jsx";
@@ -67,7 +67,7 @@ function Midnight() {
   }, [targetData]);
 
   function fetchTargetImages() {
-    fetch(`http://localhost:3000/${Map}Targets`)
+    fetch(`https://social-ants-production.up.railway.app/${Map}Targets`)
       .then((res) => {
         return res.json();
       })

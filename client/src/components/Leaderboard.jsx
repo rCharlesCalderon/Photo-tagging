@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { LeaderboardContext } from "./Maps";
 import "../styles/Leaderboard.css";
 function Leaderboard() {
-  const { mapIndex, setMapIndex } = useContext(LeaderboardContext);
+  const { mapIndex } = useContext(LeaderboardContext);
   const [scoreData, setScoreData] = useState(null);
   useEffect(() => {
     if (mapIndex !== null) {
@@ -11,7 +11,9 @@ function Leaderboard() {
   }, [mapIndex]);
 
   function handleLeaderboardData() {
-    fetch(`http://localhost:3000/Scores${mapIndex}`, { method: "GET" })
+    fetch(`https://social-ants-production.up.railway.app/${mapIndex}`, {
+      method: "GET",
+    })
       .then((res) => res.json())
       .then((data) => setScoreData(data));
   }
