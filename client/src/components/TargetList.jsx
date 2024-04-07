@@ -7,8 +7,6 @@ import "../styles/TargetList.css";
 function TargetList() {
   // useContext shit
   const {
-    targetListX,
-    targetListY,
     targetData,
     cordX,
     cordY,
