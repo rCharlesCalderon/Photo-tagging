@@ -67,7 +67,7 @@ function Midnight() {
   }, [targetData]);
 
   function fetchTargetImages() {
-    fetch(`https://social-ants-production.up.railway.app/${Map}Targets`)
+    fetch(`http://localhost:3000/${Map}Targets`)
       .then((res) => {
         return res.json();
       })

@@ -24,7 +24,7 @@ function TargetList() {
       x: cordX,
       y: cordY,
     };
-    fetch(`https://social-ants-production.up.railway.app/${target.name}`, {
+    fetch(`http://localhost:3000/${target.name}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

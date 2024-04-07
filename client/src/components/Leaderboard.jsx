@@ -11,9 +11,7 @@ function Leaderboard() {
   }, [mapIndex]);
 
   function handleLeaderboardData() {
-    fetch(`https://social-ants-production.up.railway.app/Scores${mapIndex}`, {
-      method: "GET",
-    })
+    fetch(`http://localhost:3000/Scores${mapIndex}`, { method: "GET" })
       .then((res) => res.json())
       .then((data) => setScoreData(data));
   }

@@ -31,7 +31,7 @@ function SubmitData() {
     const usernameInput = document.querySelector(".submit-input").value;
 
     console.log(Map);
-    fetch(`https://social-ants-production.up.railway.app/${Map}Leaderboard`, {
+    fetch(`http://localhost:3000/${Map}Leaderboard`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
